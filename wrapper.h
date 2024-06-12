@@ -1,3 +1,5 @@
+// We are using commit 26eb428 of LLVM
+// Hence, we need to unroll some changes here
 #include <mlir-c/AffineExpr.h>
 #include <mlir-c/AffineMap.h>
 #include <mlir-c/BuiltinAttributes.h>
@@ -21,7 +23,7 @@
 #include <mlir-c/Dialect/Quant.h>
 #include <mlir-c/Dialect/ROCDL.h>
 #include <mlir-c/Dialect/SCF.h>
-#include <mlir-c/Dialect/SPIRV.h>
+// #include <mlir-c/Dialect/SPIRV.h>
 #include <mlir-c/Dialect/Shape.h>
 #include <mlir-c/Dialect/SparseTensor.h>
 #include <mlir-c/Dialect/Tensor.h>
@@ -34,5 +36,5 @@
 #include <mlir-c/Pass.h>
 #include <mlir-c/RegisterEverything.h>
 #include <mlir-c/Support.h>
-#include <mlir-c/Target/LLVMIR.h>
+// #include <mlir-c/Target/LLVMIR.h>
 #include <mlir-c/Transforms.h>

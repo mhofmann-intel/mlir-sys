@@ -90,9 +90,13 @@ fn run() -> Result<(), Box<dyn Error>> {
         println!("cargo:rustc-link-lib={}", name);
     }
 
+    let base_idir = llvm_config("--includedir")?;
+
     bindgen::builder()
         .header("wrapper.h")
-        .clang_arg(format!("-I{}", llvm_config("--includedir")?))
+        .clang_arg(format!("-I{}", base_idir))
+        .clang_arg(format!("-I{}/../../mlir/include", base_idir))
+        .clang_arg(format!("-I{}/../../build/tools/mlir/include", base_idir))
         .parse_callbacks(Box::new(bindgen::CargoCallbacks::new()))
         .generate()
         .unwrap()
